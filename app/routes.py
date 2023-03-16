@@ -29,7 +29,7 @@ def show_tasks():
 def task_detail(pk):
     url = "%s/tasks/%s" % (BACKEND_URL, pk)
     resp = requests.get(url)
-    if resp.status_coe == 200:
+    if resp.status_code == 200:
         task = resp.json().get("task")
         return render_template("task_detail.html", task=task)
     return render_template("error.html"), resp.status_code
